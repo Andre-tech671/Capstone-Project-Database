@@ -1,0 +1,37 @@
+<%- include('../partials/header') %>
+  <div class="sort-options">
+    <span>Sort by:</span>
+    <a href="/?sort=title" class="<%= !sort || sort === 'title' ? 'active' : '' %>">Title</a>
+    <a href="/?sort=rating" class="<%= sort === 'rating' ? 'active' : '' %>">Rating</a>
+    <a href="/?sort=date" class="<%= sort === 'date' ? 'active' : '' %>">Date Read</a>
+  </div>
+
+  <div class="book-grid">
+    <% books.forEach(book => { %>
+      <div class="book-card">
+        <% if (book.cover_id) { %>
+          <img src="/api/covers/<%= book.cover_id %>" alt="<%= book.title %> cover" class="book-cover">
+        <% } else { %>
+          <div class="book-cover placeholder">No Cover</div>
+        <% } %>
+        <div class="book-info">
+          <h3><%= book.title %></h3>
+          <p>by <%= book.author %></p>
+          <div class="rating">
+            <% for (let i = 1; i <= 5; i++) { %>
+              <span class="star <%= i <= book.rating ? 'filled' : '' %>">★</span>
+            <% } %>
+          </div>
+          <p>Read on: <%= new Date(book.date_read).toLocaleDateString() %></p>
+          <div class="actions">
+            <a href="/books/<%= book.id %>" class="btn">View</a>
+            <a href="/books/<%= book.id %>/edit" class="btn">Edit</a>
+            <form action="/books/<%= book.id %>?_method=DELETE" method="POST" class="delete-form">
+              <button type="submit" class="btn danger">Delete</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+<%- include('../partials/footer') %>

@@ -1,0 +1,37 @@
+<%- include('../partials/header') %>
+  <h2>Edit Book</h2>
+  <form action="/books/<%= book.id %>?_method=PUT" method="POST" class="book-form">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" id="title" name="title" value="<%= book.title %>" required>
+    </div>
+    <div class="form-group">
+      <label for="author">Author</label>
+      <input type="text" id="author" name="author" value="<%= book.author %>" required>
+    </div>
+    <div class="form-group">
+      <label for="rating">Rating (1-5)</label>
+      <select id="rating" name="rating" required>
+        <% for (let i = 1; i <= 5; i++) { %>
+          <option value="<%= i %>" <%= i === book.rating ? 'selected' : '' %>>
+            <%= i %> <%= '★'.repeat(i) %>
+          </option>
+        <% } %>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="date_read">Date Read</label>
+      <input type="date" id="date_read" name="date_read" 
+             value="<%= new Date(book.date_read).toISOString().split('T')[0] %>" required>
+    </div>
+    <div class="form-group">
+      <label for="cover_id">Open Library Cover ID (optional)</label>
+      <input type="text" id="cover_id" name="cover_id" value="<%= book.cover_id || '' %>">
+    </div>
+    <div class="form-group">
+      <label for="notes">Notes</label>
+      <textarea id="notes" name="notes" rows="5"><%= book.notes || '' %></textarea>
+    </div>
+    <button type="submit" class="btn">Update Book</button>
+  </form>
+<%- include('../partials/footer') %>

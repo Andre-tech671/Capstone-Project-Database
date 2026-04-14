@@ -1,0 +1,258 @@
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --danger-color: #e74c3c;
+  --light-color: #ecf0f1;
+  --dark-color: #2c3e50;
+  --gray-color: #95a5a6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--dark-color);
+  background-color: #f5f5f5;
+}
+
+header {
+  background-color: var(--dark-color);
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.sort-options {
+  margin-bottom: 1.5rem;
+  padding: 0.5rem;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sort-options a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: var(--primary-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.sort-options a.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.book-card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.book-cover {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.book-cover.placeholder {
+  background-color: var(--light-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-color);
+  font-weight: bold;
+}
+
+.book-info {
+  padding: 1rem;
+}
+
+.book-info h3 {
+  margin-bottom: 0.5rem;
+}
+
+.rating {
+  margin: 0.5rem 0;
+  color: var(--gray-color);
+}
+
+.rating .star {
+  font-size: 1.2rem;
+}
+
+.rating .star.filled {
+  color: #f1c40f;
+}
+
+.actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #2980b9;
+}
+
+.btn.danger {
+  background-color: var(--danger-color);
+}
+
+.btn.danger:hover {
+  background-color: #c0392b;
+}
+
+.book-form {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+.form-group textarea {
+  min-height: 100px;
+}
+
+.book-detail {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-cover-large {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.book-cover-large.placeholder {
+  background-color: var(--light-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-color);
+  font-weight: bold;
+}
+
+.book-meta h2 {
+  margin-bottom: 0.5rem;
+}
+
+.book-meta h3 {
+  margin-bottom: 1rem;
+  color: var(--gray-color);
+  font-weight: normal;
+}
+
+.notes {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: var(--light-color);
+  border-radius: 4px;
+}
+
+.notes h4 {
+  margin-bottom: 0.5rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  color: var(--gray-color);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .book-detail {
+    grid-template-columns: 1fr;
+  }
+  
+  .book-cover-large {
+    height: 300px;
+  }
+}

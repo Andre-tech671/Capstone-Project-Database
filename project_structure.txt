@@ -1,0 +1,21 @@
+book-tracker/
+├── public/
+│   ├── css/
+│   │   └── style.css
+│   └── js/
+│       └── script.js
+├── views/
+│   ├── partials/
+│   │   ├── header.ejs
+│   │   └── footer.ejs
+│   ├── books/
+│   │   ├── index.ejs
+│   │   ├── new.ejs
+│   │   ├── edit.ejs
+│   │   └── show.ejs
+│   └── index.ejs
+├── .env
+├── .gitignore
+├── database.sql
+├── package.json
+└── server.js
