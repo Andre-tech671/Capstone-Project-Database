@@ -13,3 +13,4 @@ if (dateReadInput && !dateReadInput.value) {
   const today = new Date().toISOString().split('T')[0];
   dateReadInput.value = today;
 }
+
